@@ -19,16 +19,15 @@
     secret, although it may be widely unknown. It's just probability, statistics, and arithmetic, done carefully. And before I trust the machinery on
     anything new it has to reproduce the published house numbers for the exact rules first.
   </p>
-  <p class="skip-link"><a href="#bets">Take me to the bets &darr;</a></p>
+  <p class="skip-link"><a href="#bets">Skip to the bets &darr;</a><span class="skip-aside">or continue to read about the process</span></p>
 </header>
 
 <section class="step">
   <h2>The process</h2>
   <p>
-    A card that leaves the shoe is information. Any bet built on the shoe can be priced from that information, and the same pipeline does it for any
+    A card that leaves the shoe is information. Any bet built on the shoe can be priced from that information, and the same pipeline can do it for any
     game. It runs from rules to verdict in eight steps and always ends at the same three numbers: the ceiling, the capture, and the price. If you'd
-    rather meet it in miniature first, <a href="toy.html">the same eight steps run on a six-card toy game</a> where you can check every number on a
-    napkin.
+    rather see it by a small example first, <a href="toy.html">the same eight steps run on a six-card toy game</a> where you can check every number by hand.
   </p>
 
   <ol class="process">
@@ -53,8 +52,8 @@
     <li>
       <h3>Build the oracle</h3>
       <p>
-        The oracle is the bet's expected value when you know the full remaining shoe. Where the bet's structure allows it I enumerate exactly;
-        otherwise I compute EV from the exact composition, and simulation is the fallback. The oracle is the ceiling. Every human system that follows
+        The oracle is the bet's expected value when you know the full remaining shoe. Where the bet's structure allows it I enumerate exactly.
+        Otherwise I compute EV from the exact composition, and simulation is the fallback. The oracle is the ceiling. Every human system that follows
         gets scored as a fraction of it.
       </p>
     </li>
@@ -89,9 +88,9 @@
     <li>
       <h3>Replay the human system live</h3>
       <p>
-        Then the literal card (count, trigger, playing rules) gets replayed on fresh shoes it was never fitted to, the way a person would play it. Its score
-        is the capture fraction: the share of the oracle ceiling it keeps. Competing systems replay on identical card streams, so a difference of a
-        few dollars per hundred rounds shows up cleanly instead of drowning in shoe noise.
+        Then the literal card (count, trigger, playing rules) gets replayed on fresh shoes it was never fitted to, the way a person would play it. Its
+        score is the capture fraction: the share of the oracle ceiling it keeps. Competing systems replay on identical card streams, so a difference
+        of a few dollars per hundred rounds shows up cleanly instead of drowning in shoe noise.
       </p>
     </li>
     <li>
@@ -109,10 +108,9 @@
       <p>
         Five calls are possible. <em>Highly beatable</em>: a system a person can carry captures a rich edge relative to the bankroll and the waiting
         it demands. <em>Beatable</em>: a carryable system captures a real edge, priced like work. <em>Not worth it</em>: the edge is real and the
-        income at realistic stakes is pocket change. <em>Not beatable</em>: there's no composition
-        signal to exploit. <em>Not human-beatable</em>: the oracle finds an edge, and no carryable system keeps enough of it to matter. The call
-        describes the game itself. Facts that complicate the story get stated with the numbers, like a bet that turns positive and still pays less
-        than putting the same chips on the main hand.
+        income at realistic stakes is pocket change. <em>Not beatable</em>: there's no composition signal to exploit. <em>Not human-beatable</em>: the
+        oracle finds an edge, and no carryable system keeps enough of it to matter. The call describes the game itself. Facts that complicate the
+        story get stated with the numbers, like a bet that turns positive and still pays less than putting the same chips on the main hand.
       </p>
     </li>
   </ol>
@@ -124,7 +122,7 @@
     One page per bet, same shape every time: verdict first, then the eight steps, with the heavier math folded away where you can open it when you
     want it.
   </p>
-  <div class="cards"><a class="card" href="bets/pot-of-gold.html"><span class="chip chip-highly-beatable">highly beatable</span><h3>Pot of Gold</h3><p>This bet can be beaten. The count is real, it looks like no blackjack count in print, and it survived a live replay on shoes it was never fitted to. The published house-edge table also turned out to be arithmetically impossible, which I found on the way in.</p><span class="card-go">read the work &rarr;</span></a><a class="card" href="bets/21-plus-3.html"><span class="chip chip-beatable">beatable</span><h3>21+3</h3><p>This bet can be beaten through the suits, and it was the first positive verdict of the project. The edge is grind-scale, it needs a deep cut, and it only clears its costs for a back-counter betting trigger rounds alone.</p><span class="card-go">read the work &rarr;</span></a><a class="card" href="bets/ez-baccarat.html"><span class="chip chip-beatable">beatable</span><h3>Dragon 7 &amp; Panda 8</h3><p>Both bets can be beaten with two written counts kept side by side on the scorecard the game already hands you. The pair keeps about 87% of the exact ceiling, and baccarat lets you sit out the rounds in between, so there is no toll while you wait.</p><span class="card-go">read the work &rarr;</span></a><a class="card" href="bets/standard-blackjack.html"><span class="chip chip-beatable">beatable</span><h3>Standard blackjack</h3><p>Blackjack is beatable and has been public knowledge since 1962. What this page adds is the true price of that fact on a real six-deck game, plus two results the folklore gets wrong: playing skill cannot rescue bad shoes, and the graduated ramp's middle is dead weight.</p><span class="card-go">read the work &rarr;</span></a><a class="card" href="bets/ride-free.html"><span class="chip chip-not-worth-it">not worth it</span><h3>Ride Free (Free Bet Blackjack)</h3><p>A real edge exists, and it is too small to matter. Back-counting with the game's own count certifies at +0.59% per played round on 6.6% of rounds, which comes to a few dollars per 100 rounds at ordinary stakes. This page also carries the first effect-of-removal table I know of for this game.</p><span class="card-go">read the work &rarr;</span></a><a class="card" href="bets/war-blackjack.html"><span class="chip chip-not-worth-it">not worth it</span><h3>War Blackjack</h3><p>This wager splits into a leg that cannot be counted by anyone and an option that only pays because it's a bet on the blackjack hand next to it. Put together, it turns positive at a true count of +2.6 and pays less than the same chips on that hand at every count.</p><span class="card-go">read the work &rarr;</span></a></div>
+  <div class="cards"><a class="card" href="bets/pot-of-gold.html"><span class="chip chip-highly-beatable">highly beatable</span><h3>Pot of Gold</h3><p>This bet can be beaten and the count looks like no blackjack count in print. The published house-edge table also turned out to be arithmetically impossible, which is talked about below.</p><span class="card-go">read the work &rarr;</span></a><a class="card" href="bets/21-plus-3.html"><span class="chip chip-beatable">beatable</span><h3>21+3</h3><p>This bet can be beaten through the suits, and it was the first bet I found a real edge in. The edge is grind-scale, it needs a deep cut, and it only clears its costs for a back-counter betting trigger rounds alone.</p><span class="card-go">read the work &rarr;</span></a><a class="card" href="bets/ez-baccarat.html"><span class="chip chip-beatable">beatable</span><h3>Dragon 7 &amp; Panda 8</h3><p>Both bets can be beaten with two written counts kept side by side on the scorecard the game already hands you. The pair keeps about 87% of the exact ceiling, and baccarat lets you sit out the rounds in between, so there is no toll while you wait.</p><span class="card-go">read the work &rarr;</span></a><a class="card" href="bets/standard-blackjack.html"><span class="chip chip-beatable">beatable</span><h3>Standard blackjack</h3><p>Blackjack is beatable and has been public knowledge since 1962. What this page adds is the true price of that fact on a real six-deck game, plus two results the folklore gets wrong: playing skill cannot rescue bad shoes, and the graduated ramp's middle is dead weight.</p><span class="card-go">read the work &rarr;</span></a><a class="card" href="bets/ride-free.html"><span class="chip chip-not-worth-it">not worth it</span><h3>Ride Free (Free Bet Blackjack)</h3><p>A real edge exists, and it is too small to matter. Back-counting with the game's own count certifies at +0.59% per played round on 6.6% of rounds, which comes to a few dollars per 100 rounds at ordinary stakes. This page also carries the first effect-of-removal table I know of for this game.</p><span class="card-go">read the work &rarr;</span></a><a class="card" href="bets/war-blackjack.html"><span class="chip chip-not-worth-it">not worth it</span><h3>War Blackjack</h3><p>This wager splits into a leg that cannot be counted by anyone and an option that only pays because it's a bet on the blackjack hand next to it. Put together, it turns positive at a true count of +2.6 and pays less than the same chips on that hand at every count.</p><span class="card-go">read the work &rarr;</span></a></div>
 </section>
 
 <section class="step">
@@ -132,8 +130,7 @@
   <p>
     This site sells nothing, and a verdict of beatable here is not a suggestion to go play. Several of these bets can be beaten on paper and then ask
     for a bankroll, a penetration, or a table maximum that a real floor rarely offers, and two of them turn positive while still paying less than the
-    same chips put somewhere else. Each page prices what the game actually costs to collect. When I get a number wrong, the correction stays on the
-    page. A site that never shows its misses shouldn't be trusted about its hits.
+    same chips put somewhere else. Each page prices what the game actually costs to collect.
   </p>
 </section>
 

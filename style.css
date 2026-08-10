@@ -351,6 +351,13 @@ td.pos, td.neg { font-weight: 600; }
 
 .skip-link a.jump-quiet:hover { background: var(--felt-wash); }
 
+/* Quiet companion text beside a jump button: says what you get by not
+   clicking it, so it must not compete with the button. */
+.skip-link .skip-aside {
+  color: var(--faint);
+  font-size: 0.82rem;
+}
+
 section.step[id] { scroll-margin-top: 1rem; }
 
 section.how-to-play {
