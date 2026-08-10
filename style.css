@@ -171,6 +171,25 @@ p.headline {
 .chip-not-human-beatable { background: #6c5f8d; }
 .chip-pending { background: var(--faint); }
 
+/* A quiet companion to the verdict chip: this page carries a result with no
+   published counterpart. Deliberately subordinate to the chip, since the
+   verdict is the headline and this is a footnote to it. */
+.chip-note {
+  display: inline-block;
+  font-family: var(--sans);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: #7a5c10;
+  background: #fbf3dd;
+  border: 1px solid rgba(176, 141, 47, 0.45);
+  border-radius: 999px;
+  padding: 0.3em 0.8em;
+  margin-left: 0.45rem;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
 /* ---- verdict box and header stats ---- */
 
 .verdict {
