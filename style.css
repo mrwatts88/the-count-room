@@ -383,6 +383,43 @@ section.how-to-play {
 
 section.how-to-play h2 { margin-top: 1.2rem; }
 
+/* A page offering two playable cards has to show them AS two cards. Each option
+   gets its own panel so a reader picks one and plays it, instead of reading a
+   run of tables and guessing which rows belong together. */
+.play-option {
+  background: var(--card);
+  border: 1px solid var(--rule);
+  border-left: 3px solid var(--faint);
+  border-radius: 5px;
+  padding: 0.85rem 1.1rem 1.1rem;
+  margin: 1.1rem 0;
+}
+
+.play-option h3 {
+  font-family: var(--sans);
+  font-size: 0.86rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  margin: 0;
+}
+
+.play-option .option-n {
+  font-size: 0.66rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--muted);
+  display: block;
+  margin-bottom: 0.15rem;
+}
+
+.play-option .option-tagline {
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin: 0.35rem 0 0;
+}
+
+.play-option.option-pick { border-left-color: var(--felt); }
+
 /* ---- verification pills (the published-record receipts) ---- */
 
 .pills {
