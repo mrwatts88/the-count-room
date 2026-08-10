@@ -343,14 +343,6 @@ td.pos, td.neg { font-weight: 600; }
 .skip-link a { margin: 0 0.4rem 0.4rem 0; }
 .skip-link a:hover { background: var(--felt-deep); }
 
-.skip-link a.jump-quiet {
-  background: var(--card);
-  color: var(--felt);
-  border: 1px solid rgba(23, 89, 57, 0.35);
-}
-
-.skip-link a.jump-quiet:hover { background: var(--felt-wash); }
-
 /* Quiet companion text beside a jump button: says what you get by not
    clicking it, so it must not compete with the button. */
 .skip-link .skip-aside {
