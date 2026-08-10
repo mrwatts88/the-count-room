@@ -1,0 +1,545 @@
+/* The Count Room — design system.
+   One committed look: cool paper, ink, felt green, signal red. No beige.
+   Serif prose (print-journal register), monospace numbers, chip-style badges. */
+
+:root {
+  --paper: #f5f7f5;
+  --card: #ffffff;
+  --ink: #1b2420;
+  --muted: #55655c;
+  --faint: #8a978f;
+  --rule: #dbe3dd;
+  --felt: #175939;
+  --felt-deep: #0d3a24;
+  --felt-wash: #e9f1ec;
+  --red: #a63428;
+  --red-wash: #f7ebe9;
+  --gold: #b08d2f;
+  --serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  --sans: -apple-system, "Segoe UI", system-ui, sans-serif;
+  --mono: "SF Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 17px;
+  line-height: 1.65;
+  border-top: 6px solid var(--felt-deep);
+}
+
+main { max-width: 46rem; margin: 0 auto; padding: 1rem 1.25rem 4rem; }
+
+a { color: var(--felt); text-decoration-color: rgba(23, 89, 57, 0.35); }
+a:hover { text-decoration-color: var(--felt); }
+
+code {
+  font-family: var(--mono);
+  font-size: 0.85em;
+  background: var(--felt-wash);
+  padding: 0.1em 0.35em;
+  border-radius: 3px;
+}
+
+/* ---- top navigation ---- */
+
+nav.top {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 0.9rem 1.25rem;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+nav.top .brand {
+  font-family: var(--sans);
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+nav.top .suit { color: var(--felt); margin-left: 0.3em; }
+
+nav.top .links { font-family: var(--sans); font-size: 0.85rem; }
+
+/* ---- headings and prose ---- */
+
+h1 {
+  font-size: 2.4rem;
+  line-height: 1.15;
+  margin: 0.4rem 0 0.6rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+h2 {
+  font-size: 1.35rem;
+  margin: 2.6rem 0 0.2rem;
+  font-weight: 600;
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+}
+
+h3 { font-size: 1.05rem; margin: 0.3rem 0; }
+
+h4 {
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 1.4rem 0 0.4rem;
+}
+
+.kicker {
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 2rem 0 0;
+}
+
+.subtitle { font-style: italic; color: var(--muted); margin-top: 0; }
+
+.step-n {
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  color: var(--card);
+  background: var(--felt);
+  min-width: 1.7em;
+  height: 1.7em;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  position: relative;
+  top: -0.1em;
+}
+
+p.headline {
+  font-style: italic;
+  color: var(--muted);
+  margin-top: 0.4rem;
+  border-left: 3px solid var(--rule);
+  padding-left: 0.8rem;
+}
+
+/* ---- verdict chips (casino-chip styling: dashed inner ring) ---- */
+
+.chip {
+  display: inline-block;
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #fff;
+  padding: 0.32em 0.9em;
+  border-radius: 999px;
+  box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.55);
+  outline: 1px dashed rgba(255, 255, 255, 0.75);
+  outline-offset: -5px;
+}
+
+.chip-highly-beatable { background: var(--felt-deep); outline-color: var(--gold); box-shadow: inset 0 0 0 2px rgba(176, 141, 47, 0.8); }
+.chip-beatable { background: var(--felt); }
+.chip-not-worth-it { background: #806c22; }
+.chip-not-beatable { background: var(--red); }
+.chip-not-human-beatable { background: #6c5f8d; }
+.chip-pending { background: var(--faint); }
+
+/* ---- verdict box and header stats ---- */
+
+.verdict {
+  background: var(--card);
+  border: 1px solid var(--rule);
+  border-left: 4px solid var(--gold);
+  border-radius: 6px;
+  padding: 1.1rem 1.3rem;
+  margin: 1.4rem 0;
+}
+
+.verdict-highly-beatable { border-left-color: var(--felt-deep); }
+.verdict-beatable { border-left-color: var(--felt); }
+.verdict-not-worth-it { border-left-color: #806c22; }
+.verdict-not-beatable { border-left-color: var(--red); }
+.verdict-not-human-beatable { border-left-color: #6c5f8d; }
+
+.verdict-headline { font-size: 1.08rem; font-weight: 600; margin: 0.7rem 0 0.5rem; }
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  gap: 1px;
+  background: var(--rule);
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  overflow: hidden;
+  margin: 1.5rem 0 0.5rem;
+}
+
+.stat { background: var(--card); padding: 0.8rem 1rem; }
+
+.stat-value { font-family: var(--mono); font-size: 1.15rem; font-weight: 600; }
+
+.stat-label,
+.stat-detail {
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  color: var(--muted);
+}
+
+.stat-label { text-transform: uppercase; letter-spacing: 0.07em; margin-top: 0.25rem; }
+.stat-detail { color: var(--faint); }
+
+/* ---- tables ---- */
+
+.table-scroll { overflow-x: auto; margin: 1.2rem 0; }
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 0.88rem;
+  background: var(--card);
+  border: 1px solid var(--rule);
+}
+
+/* Many-column tables keep their natural width and scroll in .table-scroll
+   instead of squeezing every column until the numbers wrap. */
+table.wide {
+  width: max-content;
+  min-width: 100%;
+}
+
+table.wide th,
+table.wide td { white-space: nowrap; }
+
+caption {
+  caption-side: top;
+  text-align: left;
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding: 0.4rem 0.2rem;
+}
+
+th, td { padding: 0.45rem 0.8rem; border-top: 1px solid var(--rule); }
+
+thead th {
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+  background: var(--felt-wash);
+  border-top: none;
+}
+
+tbody th { font-weight: 600; text-align: left; font-family: var(--serif); }
+
+td { font-family: var(--mono); font-size: 0.82rem; }
+
+.al { text-align: left; }
+.ar { text-align: right; }
+
+.pos { color: var(--felt); }
+.neg { color: var(--red); }
+
+td.pos, td.neg { font-weight: 600; }
+
+/* ---- the scenario card (one per ledger, uniform everywhere) ---- */
+
+.scenario {
+  display: grid;
+  grid-template-columns: minmax(17rem, 5fr) 6fr;
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  overflow: hidden;
+  margin: 1.4rem 0;
+  background: var(--card);
+}
+
+.sc-side { background: var(--felt-deep); color: #e8efe9; padding: 1rem 1.2rem; }
+
+.sc-side h4 { color: #9db8a6; margin: 0 0 0.6rem; }
+
+.sc-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  font-size: 0.82rem;
+  padding: 0.28rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.sc-row:last-child { border-bottom: none; }
+
+.sc-label { font-family: var(--sans); color: #9db8a6; }
+.sc-value { font-family: var(--mono); text-align: right; }
+
+.sc-results {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(8.5rem, 1fr));
+  align-content: center;
+  gap: 1rem;
+  padding: 1rem 1.2rem;
+}
+
+.sc-out-value { font-family: var(--mono); font-size: 1.25rem; font-weight: 700; }
+.sc-out-label {
+  font-family: var(--sans);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--muted);
+  margin-top: 0.2rem;
+}
+.sc-out-detail { font-family: var(--sans); font-size: 0.72rem; color: var(--faint); }
+
+@media (max-width: 40rem) {
+  .scenario { grid-template-columns: 1fr; }
+}
+
+/* ---- the how-to-play section and its jump link ---- */
+
+.skip-link { font-family: var(--sans); margin: 0.8rem 0 0; }
+
+.skip-link a {
+  display: inline-block;
+  background: var(--felt);
+  color: #fff;
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 0.45em 1.1em;
+  border-radius: 999px;
+  text-decoration: none;
+}
+
+.skip-link a { margin: 0 0.4rem 0.4rem 0; }
+.skip-link a:hover { background: var(--felt-deep); }
+
+.skip-link a.jump-quiet {
+  background: var(--card);
+  color: var(--felt);
+  border: 1px solid rgba(23, 89, 57, 0.35);
+}
+
+.skip-link a.jump-quiet:hover { background: var(--felt-wash); }
+
+section.step[id] { scroll-margin-top: 1rem; }
+
+section.how-to-play {
+  background: var(--felt-wash);
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  padding: 0.3rem 1.3rem 1.2rem;
+  scroll-margin-top: 1rem;
+}
+
+section.how-to-play h2 { margin-top: 1.2rem; }
+
+/* ---- verification pills (the published-record receipts) ---- */
+
+.pills {
+  background: var(--card);
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  padding: 0.9rem 1.1rem 1.05rem;
+  margin: 1.2rem 0;
+}
+
+.pills h4 {
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--faint);
+  margin: 0 0 0.75rem;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.45em;
+  font-family: var(--sans);
+  font-size: 0.8rem;
+  line-height: 1.35;
+  background: var(--felt-wash);
+  border: 1px solid rgba(23, 89, 57, 0.25);
+  color: var(--ink);
+  border-radius: 999px;
+  padding: 0.4em 0.95em;
+  margin: 0 0.4rem 0.45rem 0;
+  text-decoration: none;
+}
+
+a.pill:hover { background: #dcebe2; border-color: var(--felt); }
+
+.pill-mark { color: var(--felt); font-weight: 700; }
+.pill-src { color: var(--muted); font-size: 0.74rem; white-space: nowrap; }
+a.pill .pill-src::after { content: "\00a0\2197"; }
+
+/* a check we ran that DISAGREES with the published record */
+.pill-dispute { background: var(--red-wash); border-color: rgba(166, 52, 40, 0.3); }
+a.pill-dispute:hover { background: #f2ded9; border-color: var(--red); }
+.pill-dispute .pill-mark { color: var(--red); }
+
+/* ---- the math spoiler ---- */
+
+details.math {
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  background: var(--card);
+  margin: 1.2rem 0;
+}
+
+details.math summary {
+  cursor: pointer;
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--felt);
+  padding: 0.7rem 1rem;
+  list-style: none;
+}
+
+details.math summary::before { content: "\2660\00a0\00a0"; color: var(--faint); }
+
+details.math summary::after {
+  content: "show the math";
+  float: right;
+  font-weight: 400;
+  color: var(--faint);
+  font-size: 0.75rem;
+}
+
+details.math[open] summary::after { content: "hide"; }
+
+details.math summary::-webkit-details-marker { display: none; }
+
+.math-body {
+  padding: 0 1.2rem 0.8rem;
+  border-top: 1px solid var(--rule);
+  font-size: 0.95rem;
+}
+
+/* ---- conditions, provenance ---- */
+
+ul.conditions li { margin: 0.5rem 0; }
+
+.provenance { font-size: 0.92rem; }
+.provenance ul { margin: 0.2rem 0; padding-left: 1.2rem; }
+.provenance li { margin: 0.25rem 0; }
+.updated { color: var(--faint); font-size: 0.85rem; }
+
+/* ---- the bet index cards ---- */
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(19rem, 1fr));
+  gap: 1rem;
+  margin: 1.4rem 0;
+}
+
+.card {
+  display: block;
+  background: var(--card);
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  padding: 1.1rem 1.2rem;
+  color: var(--ink);
+  text-decoration: none;
+  transition: border-color 120ms ease, transform 120ms ease;
+}
+
+a.card:hover { border-color: var(--felt); transform: translateY(-1px); }
+
+.card p { font-size: 0.88rem; color: var(--muted); margin-bottom: 0.4rem; }
+
+.card-go { font-family: var(--sans); font-size: 0.78rem; color: var(--felt); }
+
+.card-pending { opacity: 0.75; }
+
+/* ---- homepage process list ---- */
+
+ol.process { list-style: none; padding: 0; counter-reset: step; }
+
+ol.process > li {
+  counter-increment: step;
+  position: relative;
+  padding: 0 0 1.3rem 3rem;
+  border-left: 1px solid var(--rule);
+  margin-left: 0.85rem;
+}
+
+ol.process > li::before {
+  content: counter(step);
+  position: absolute;
+  left: -0.9rem;
+  top: 0;
+  width: 1.8rem;
+  height: 1.8rem;
+  border-radius: 50%;
+  background: var(--felt);
+  color: #fff;
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+ol.process > li:last-child { border-left-color: transparent; }
+
+ol.process h3 { margin-top: 0.1rem; }
+ol.process p { margin: 0.35rem 0; font-size: 0.95rem; }
+
+/* ---- toy page: card glyphs and state tables ---- */
+
+.shoe { display: flex; gap: 0.45rem; margin: 1.2rem 0; flex-wrap: wrap; }
+
+.playing-card {
+  width: 3.2rem;
+  height: 4.4rem;
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  background: var(--card);
+  box-shadow: 0 1px 2px rgba(27, 36, 32, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--serif);
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.playing-card.red { color: var(--red); }
+.playing-card.black { color: var(--ink); }
+
+/* ---- footer ---- */
+
+footer {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 1.5rem 1.25rem 3rem;
+  border-top: 1px solid var(--rule);
+  font-family: var(--sans);
+  font-size: 0.8rem;
+  color: var(--faint);
+}

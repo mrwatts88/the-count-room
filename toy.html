@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A quick example · The Count Room</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav class="top">
+  <a class="brand" href="index.html">The Count Room<span class="suit">&spades;</span></a>
+  <span class="links"><a href="toy.html">a quick example</a></span>
+</nav>
+<main>
+<header class="bet-head">
+  <p class="kicker">the whole method, small enough to check by hand</p>
+  <h1>A quick example</h1>
+  <p class="subtitle">
+    Every bet page on this site runs the same eight steps. On a real game each step takes millions of simulated rounds. Here the shoe has six cards,
+    so you can check every number on a napkin, and the toy still carries the two facts that decide real bets: why counting works, and why some bets
+    can't be counted with per-card tags at all.
+  </p>
+</header>
+
+<section class="step">
+  <h2><span class="step-n">1</span>The rules, as data</h2>
+  <p>
+    The shoe holds six cards: two deuces, two sevens, two kings. They're dealt one at a time, face up, no reshuffle. You see every discard, and that's
+    the premise of counting. A card that has left the shoe is information.
+  </p>
+  <div class="shoe">
+    <span class="playing-card black">2&spades;</span>
+    <span class="playing-card red">2&hearts;</span>
+    <span class="playing-card black">7&spades;</span>
+    <span class="playing-card red">7&hearts;</span>
+    <span class="playing-card black">K&spades;</span>
+    <span class="playing-card red">K&hearts;</span>
+  </div>
+  <p>
+    The house offers two bets before every draw. They look like cousins. One falls to the oldest trick in the book. The other doesn't fall to any
+    per-card count at all.
+  </p>
+  <div class="table-scroll">
+    <table>
+      <thead>
+        <tr>
+          <th class="al">bet</th>
+          <th class="al">wins when</th>
+          <th class="al">pays</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th class="al">High Draw</th>
+          <td class="al">the next card is a king</td>
+          <td class="al">9 to 5</td>
+        </tr>
+        <tr>
+          <th class="al">The Match</th>
+          <td class="al">the next two cards share a rank</td>
+          <td class="al">3 to 1</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="step">
+  <h2><span class="step-n">2</span>Reproduce the published figures</h2>
+  <p>
+    On a real game this step means matching the published house edge for the exact rules before trusting anything else. The toy casino publishes its
+    edges too, and you can check them exactly. High Draw off the top: two kings in six cards, so the win probability is 1/3, and at 9-to-5 the
+    expected value is 1.8&nbsp;&times;&nbsp;1/3&nbsp;&minus;&nbsp;2/3 = <strong>&minus;6.67%</strong>. The Match off the top: whatever the first card
+    is, exactly one of the remaining five matches it, so the win probability is 1/5, and at 3-to-1 that's <strong>&minus;20%</strong>. Both check out.
+    Now the machinery has earned the interesting question.
+  </p>
+</section>
+
+<section class="step">
+  <h2><span class="step-n">3</span>Build the oracle</h2>
+  <p>
+    The oracle knows the exact remaining composition and prices each bet perfectly. For High Draw, with <em>k</em> kings left among <em>n</em> cards,
+    the expected value per unit is 2.8<em>k</em>/<em>n</em> &minus; 1. For The Match, what matters is how many pairs survive: with rank counts
+    n<sub>r</sub>, the win probability is &Sigma;&nbsp;n<sub>r</sub>(n<sub>r</sub>&minus;1) over <em>n</em>(<em>n</em>&minus;1), and the bet is worth
+    taking when that clears one quarter. That's the whole ceiling. Nobody at the table can know more than these two formulas do.
+  </p>
+</section>
+
+<section class="step">
+  <h2><span class="step-n">4</span>Enumerate the states</h2>
+  <p>
+    A real game needs millions of simulated shoes here. The toy's states fit in one table. High Draw's oracle, by kings remaining and cards remaining,
+    with player-positive states in green:
+  </p>
+  <div class="table-scroll">
+    <table class="wide">
+      <caption>
+        High Draw: oracle EV per unit, by state
+      </caption>
+      <thead>
+        <tr>
+          <th class="al">kings left</th>
+          <th class="ar">n = 6</th>
+          <th class="ar">n = 5</th>
+          <th class="ar">n = 4</th>
+          <th class="ar">n = 3</th>
+          <th class="ar">n = 2</th>
+          <th class="ar">n = 1</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th class="al">2</th>
+          <td class="ar neg">−6.7%</td>
+          <td class="ar pos">+12%</td>
+          <td class="ar pos">+40%</td>
+          <td class="ar pos">+86.7%</td>
+          <td class="ar pos">+180%</td>
+          <td class="ar">—</td>
+        </tr>
+        <tr>
+          <th class="al">1</th>
+          <td class="ar">—</td>
+          <td class="ar neg">−44%</td>
+          <td class="ar neg">−30%</td>
+          <td class="ar neg">−6.7%</td>
+          <td class="ar pos">+40%</td>
+          <td class="ar pos">+180%</td>
+        </tr>
+        <tr>
+          <th class="al">0</th>
+          <td class="ar">—</td>
+          <td class="ar">—</td>
+          <td class="ar neg">−100%</td>
+          <td class="ar neg">−100%</td>
+          <td class="ar neg">−100%</td>
+          <td class="ar neg">−100%</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p>
+    The bet starts negative, and the shoe's departures push it around, hardest near the bottom of the shoe. That's why penetration will matter in step
+    seven.
+  </p>
+</section>
+
+<section class="step">
+  <h2><span class="step-n">5</span>Fit a model a person can carry</h2>
+  <p>
+    The standard move is the effect of removal: how much does the first departure of each card move the bet's expected value? For High Draw, a
+    departing deuce or seven moves it from &minus;6.67% to +12%, a shift of +18.67 points. A departing king moves it to &minus;44%, a shift of
+    &minus;37.33 points. The ratio is exactly 2 to 1, so the fitted tags are <strong>+1 for every small card, &minus;2 for every king</strong>. And
+    since this bet's value depends only on the king ratio, the running count plus cards-remaining recovers the oracle state completely. The fit has
+    zero error.
+  </p>
+  <p>
+    Run the same procedure on The Match and it fails. Remove any single card and recompute: surviving pairs drop from 6 to 4, ordered two-card
+    combinations drop from 30 to 20, and the win probability is 4/20 = 1/5, unchanged. Every single-card effect of removal is exactly zero. The
+    least-squares fit dutifully puts a zero tag on every rank, and the best per-card count in the world captures none of this bet's value.
+  </p>
+  <p>
+    The value is still there, though. Look at two removals instead of one. If the two departed cards shared a rank, the survivors are two intact pairs
+    among four cards and the bet swings to <strong>+33%</strong>. If they differed, one pair survives and it swings to <strong>&minus;33%</strong>.
+    The information was never in which cards left. It's in how they left together. So the model has to grow past per-card tags to a pairwise
+    statistic: track the intact pairs, bet when &Sigma;&nbsp;n<sub>r</sub>(n<sub>r</sub>&minus;1) is large against the cards remaining. That statistic
+    equals the oracle, and nothing simpler captures anything.
+  </p>
+  <p>
+    The real pages apply this same rule constantly: fit linear first, score it against the oracle, grow the model only when the leftover error or the
+    bet's structure demands it. The 21+3 side bet needed a four-suit system after rank-only counts stalled. War Blackjack's tie leg is The Match
+    wearing a suit, priced by this same pair statistic, and no high-low count can touch it.
+  </p>
+  <details class="math">
+    <summary>The removal arithmetic, in full</summary>
+    <div class="math-body">
+      <p>
+        The Match win probability from rank counts (n<sub>2</sub>, n<sub>7</sub>, n<sub>K</sub>) summing to <em>n</em>: draw two without replacement,
+        and the chance both land in rank <em>r</em> is n<sub>r</sub>(n<sub>r</sub>&minus;1)/<em>n</em>(<em>n</em>&minus;1). Fresh shoe: (2·1)·3 /
+        (6·5) = 6/30 = 1/5. Remove one card of any rank, say a deuce, leaving (1,&nbsp;2,&nbsp;2): (0&nbsp;+&nbsp;2&nbsp;+&nbsp;2)/(5·4) = 4/20 = 1/5.
+        The numerator always loses exactly 2, because the removed card's rank goes from contributing 2 to contributing 0, while the denominator falls
+        from 30 to 20. The ratio holds for every rank, so every effect of removal is exactly zero. After two removals the symmetry breaks: a same-rank
+        removal leaves (2,&nbsp;2) &rarr; 4/12 = 1/3 (EV +33.3%), a split removal leaves (1,&nbsp;1,&nbsp;2) &rarr; 2/12 = 1/6 (EV &minus;33.3%). A
+        per-card count is a sum of per-card contributions, and once those are identical it can't tell the two futures apart. The bet's value is a
+        second moment of the composition, and no first-moment statistic carries it.
+      </p>
+    </div>
+  </details>
+</section>
+
+<section class="step">
+  <h2><span class="step-n">6</span>Replay the human system</h2>
+  <p>
+    On a real bet this step replays the exact card, on fresh shoes it was never fitted to, and reports the capture fraction against the oracle. The toy's
+    capture fractions are exact. High Draw's count-plus-depth system pins down the oracle state completely: <strong>capture 100%</strong>. The Match's
+    best per-card count is flat: <strong>capture 0%</strong>. The pair statistic, which a person can keep by counting broken pairs, is the full oracle
+    again. Real games land between the extremes. The 21+3 system keeps 78% of its ceiling, the baccarat scorecard about 87%, and one no-division count
+    took 106.6% of what its divided benchmark took. That fraction is what the rest of the analysis prices.
+  </p>
+</section>
+
+<section class="step">
+  <h2><span class="step-n">7</span>Put dollars on it</h2>
+  <p>
+    Give the toy its scenario card: one unit flat, bet only when the oracle is positive, full shoe dealt. A blind bettor who takes High Draw before
+    every draw loses 6.67% of a unit each time, because with no information every undealt position is a uniform draw from the full shoe. Six draws,
+    <strong>&minus;0.40 units per shoe</strong>. The counter bets only in green states, which show up about 2.2 times per shoe, and clears
+    <strong>+1.35 units per shoe</strong> exactly.
+  </p>
+  <p>
+    Then let the house respond the way real houses respond: cut off the last two cards and deal only four of six. The counter's take falls to +0.41
+    units per shoe. Cutting one third of the shoe removed <strong>69% of the edge</strong>, because the violent states cluster at the bottom. That's
+    penetration, and it decides more real verdicts than any other number in the game.
+  </p>
+  <details class="math">
+    <summary>The per-shoe expectation, term by term</summary>
+    <div class="math-body">
+      <p>
+        Before the draw with <em>n</em> cards remaining, the chance that <em>j</em> kings have already left is hypergeometric, and the counter
+        collects max(0,&nbsp;EV) in each state. Five cards left: both kings remain with probability 2/3, worth 2/3&nbsp;&times;&nbsp;0.12 = 0.080.
+        Four left: 6/15&nbsp;&times;&nbsp;0.40 = 0.160. Three left: 4/20&nbsp;&times;&nbsp;0.8667 = 0.173. Two left:
+        1/15&nbsp;&times;&nbsp;1.80&nbsp;+&nbsp;8/15&nbsp;&times;&nbsp;0.40 = 0.333. One left: 1/3&nbsp;&times;&nbsp;1.80 = 0.600. Total
+        <strong>+1.347 units per shoe</strong>. The first three terms are all a two-card cut leaves standing, and they sum to 0.413.
+      </p>
+    </div>
+  </details>
+</section>
+
+<section class="step">
+  <h2><span class="step-n">8</span>Deliver a verdict</h2>
+  <p>
+    High Draw: beatable, capture 100%, worth +1.35 units per fully dealt shoe, and two thirds of that disappears at a shallow cut. A real verdict
+    would hinge on where this imaginary house puts the cut card, which is how real verdicts usually die. The Match: beatable too, through a second
+    moment, and a conventional count, however lovingly tuned, captures nothing. Every page on <a href="index.html">the bet index</a> is this same walk at
+    full scale, with the millions of rounds and the dollars filled in.
+  </p>
+</section>
+
+</main>
+<footer>
+  <p>For education and analysis. Casinos vary their rules, so verify yours.</p>
+</footer>
+</body>
+</html>
