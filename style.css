@@ -409,6 +409,14 @@ a.pill .pill-src::after { content: "\00a0\2197"; }
 a.pill-dispute:hover { background: #f2ded9; border-color: var(--red); }
 .pill-dispute .pill-mark { color: var(--red); }
 
+/* a result with NO published counterpart. Gold, the same tone the top verdict
+   uses, and never a link: there is nothing on the other end to point at. */
+.pill-unpublished {
+  background: #fbf3dd;
+  border-color: rgba(176, 141, 47, 0.45);
+}
+.pill-unpublished .pill-mark { color: #a87d18; }
+
 /* ---- the math spoiler ---- */
 
 details.math {
