@@ -177,18 +177,20 @@ p.headline {
 .chip-note {
   display: inline-block;
   font-family: var(--sans);
-  font-size: 0.68rem;
-  font-weight: 600;
-  letter-spacing: 0.02em;
-  color: #7a5c10;
-  background: #fbf3dd;
-  border: 1px solid rgba(176, 141, 47, 0.45);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  color: #63480a;
+  background: #f4dd9c;
+  border: 1px solid rgba(146, 110, 20, 0.55);
   border-radius: 999px;
-  padding: 0.3em 0.8em;
-  margin-left: 0.45rem;
+  padding: 0.32em 0.85em;
+  margin-left: 0.75rem;
   vertical-align: middle;
   white-space: nowrap;
 }
+
+.chip-note .note-star { color: #8a4b06; margin-right: 0.2em; }
 
 /* ---- verdict box and header stats ---- */
 
