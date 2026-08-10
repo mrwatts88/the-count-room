@@ -154,9 +154,19 @@ p.headline {
   outline-offset: -5px;
 }
 
-.chip-highly-beatable { background: var(--felt-deep); outline-color: var(--gold); box-shadow: inset 0 0 0 2px rgba(176, 141, 47, 0.8); }
+/* Gold belongs to exactly one verdict. It's the only light chip with dark
+   text, so it reads as a struck coin next to the flat solid ones. */
+.chip-highly-beatable {
+  background: linear-gradient(160deg, #f4d87e 0%, #d9ab2e 48%, #a87d18 100%);
+  color: #241b06;
+  box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.6);
+  outline-color: rgba(64, 46, 6, 0.55);
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
+}
 .chip-beatable { background: var(--felt); }
-.chip-not-worth-it { background: #806c22; }
+/* Neutral on purpose: a real edge that earns nothing reads as a shrug, and
+   grey is the one tone that argues for neither playing nor avoiding. */
+.chip-not-worth-it { background: #5c6763; }
 .chip-not-beatable { background: var(--red); }
 .chip-not-human-beatable { background: #6c5f8d; }
 .chip-pending { background: var(--faint); }
@@ -172,9 +182,9 @@ p.headline {
   margin: 1.4rem 0;
 }
 
-.verdict-highly-beatable { border-left-color: var(--felt-deep); }
+.verdict-highly-beatable { border-left-color: #d9ab2e; }
 .verdict-beatable { border-left-color: var(--felt); }
-.verdict-not-worth-it { border-left-color: #806c22; }
+.verdict-not-worth-it { border-left-color: #5c6763; }
 .verdict-not-beatable { border-left-color: var(--red); }
 .verdict-not-human-beatable { border-left-color: #6c5f8d; }
 
