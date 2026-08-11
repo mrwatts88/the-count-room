@@ -623,3 +623,7 @@ footer {
   font-size: 0.8rem;
   color: var(--faint);
 }
+
+footer p + p { margin-top: 0.45rem; }
+footer a { color: var(--felt); text-decoration: none; border-bottom: 1px solid var(--rule); }
+footer a:hover { border-bottom-color: var(--felt); }
