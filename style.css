@@ -551,6 +551,11 @@ a.card:hover { border-color: var(--felt); transform: translateY(-1px); }
 
 .card-pending { opacity: 0.75; }
 
+/* A bet that is analysed and deliberately not published. Dashed, so it reads
+   as a decision rather than as a page that failed to render. */
+.card-withheld { border-style: dashed; }
+.card-withheld h3 { letter-spacing: 0.12em; }
+
 /* ---- homepage process list ---- */
 
 ol.process { list-style: none; padding: 0; counter-reset: step; }
