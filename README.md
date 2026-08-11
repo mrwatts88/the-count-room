@@ -1,6 +1,6 @@
 # The Count Room
 
-https://mrwatts88.github.io/the-count-room/
+https://thecountroom.io/
 
 Analyzing casino bets systematically: one page per bet, rules to
 verdict in eight steps, with every published figure the analysis
